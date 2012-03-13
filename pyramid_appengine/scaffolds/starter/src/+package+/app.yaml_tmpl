@@ -1,0 +1,25 @@
+application: {{project}}
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: false
+
+inbound_services:
+- warmup
+
+handlers:
+- url: /_remote_api
+  script: remote_api_wsgi.app
+  login: admin
+
+- url: /.*
+  script: application.application
+
+builtins:
+- appstats: off
+
+libraries:
+- name: jinja2
+  version: latest
+- name: webob
+  version: latest

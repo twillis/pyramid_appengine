@@ -1,0 +1,57 @@
+[buildout]
+find-links=http://dist.plone.org/thirdparty/
+develop=src/{{project}}
+parts={{project}}
+ae-sdk-version=1.6.3
+ae-runtime=2.7
+
+[versions]
+webob=1.1.1
+pyramid=1.1
+
+[gae-sdk]
+recipe=hexagonit.recipe.download
+url=http://googleappengine.googlecode.com/files/google_appengine_${buildout:ae-sdk-version}.zip
+destination=${buildout:parts-directory}/google_appengine
+strip-top-level-dir=true
+
+[rm-old-webob]
+recipe=collective.recipe.cmd:py
+on_install=true
+location=${gae-sdk:destination}/lib/webob
+cmds=
+    >>> import shutil
+    >>> shutil.rmtree('${rm-old-webob:location}')
+
+[gae-sdk-27]
+recipe=hexagonit.recipe.download
+url=http://pypi.python.org/packages/source/W/WebOb/WebOb-1.1.1.zip
+sdk-root=${gae-sdk:destination}
+destination=${rm-old-webob:location}
+strip-top-level-dir=true
+
+[{{project}}]
+recipe=rod.recipe.appengine
+packages=
+	pyramid
+	mako
+	repoze.lru
+	zope.interface
+	zope.deprecation
+	zope.component
+	zope.event
+	paste
+	pastedeploy
+	venusian
+	translationstring
+	jinja2
+	
+src=src/{{project}}
+server-script=devappserver
+zip-packages=False
+use_setuptools_pkg_resources=True
+appengine-lib=${gae-sdk-27:sdk-root}
+
+[bootstrap]
+recipe=zc.recipe.egg
+eggs=pastescript

@@ -1,0 +1,4 @@
+from paste.deploy import loadapp
+import os
+__here__ = os.path.abspath(os.path.dirname(__file__)) 
+application = loadapp("config:%s/application.ini" % __here__)
