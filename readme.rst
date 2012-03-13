@@ -84,7 +84,7 @@ Then your application will be running at...
 
 ::
 
-   http://mynewproject.appspot.com
+   http://dev.mynewproject.appspot.com
 
 
 What It Does And Why
