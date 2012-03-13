@@ -7,7 +7,7 @@ will run on Google App Engine.
 
 pyramid_appengine can be installed via pip or easy_install
 
-#+begin_src shell
+#+begin_src 
 
 $ pip install -e git@github.com:twillis/pyramid_appengine.git#egg=pyramid_appengine
 
@@ -16,7 +16,7 @@ $ pip install -e git@github.com:twillis/pyramid_appengine.git#egg=pyramid_appeng
 Once installation has completed, an appengine_starter template will be
 made avaialable to use to create projects.
 
-#+begin_src shell
+#+begin_src
 $ paster create --list-templates
 Available templates:
   appengine_starter:      Pyramid scaffold for appengine
@@ -28,7 +28,7 @@ Available templates:
 
 To get started, first create your project skeleton.
 
-#+begin_src shell
+#+begin_src
 
 $ paster create -t appengine_starter mynewproject
 
@@ -37,7 +37,7 @@ $ paster create -t appengine_starter mynewproject
 A buildout environment for your project will be created. once
 complete, run the buildout as usual
 
-#+begin_src shell
+#+begin_src
 
 $ cd meynewproject
 $ /usr/bin/python2.7 bootstrap.py --distribute
