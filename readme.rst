@@ -52,7 +52,38 @@ Engine SDK (currently 1.6.3). it will be located in
 "./parts/google_appengine" all utils for deploying and running the
 development server will be located in "./bin"
 
-Your source code for your project will be located at "./src/mynewproject"
+Your source code for your project will be located at
+"./src/mynewproject", a bundle of your source and it's dependencies
+will be located at "./parts/mynewproject"
+
+Running your project for development
+====================================
+
+::
+
+   $ ./bin/devappserver parts/mynewproject
+
+your pyramid site will be running on port 8080 so point your browser
+at
+
+::
+
+   http://localhost:8080
+
+Deploying your application to App Engine
+========================================
+
+Assuming you have created an application id "mynewproject" on app engine, the
+application can be deployed like so.
+
+::
+   $ ./bin/appcfg update parts/mynewproject -A mynewproject -V dev
+
+Then your application will be running at...
+
+::
+
+   http://mynewproject.appspot.com
 
 
 What It Does And Why
