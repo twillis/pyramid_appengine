@@ -77,6 +77,7 @@ Assuming you have created an application id "mynewproject" on app engine, the
 application can be deployed like so.
 
 ::
+
    $ ./bin/appcfg update parts/mynewproject -A mynewproject -V dev
 
 Then your application will be running at...
