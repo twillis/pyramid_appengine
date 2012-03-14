@@ -12,7 +12,7 @@ pyramid_appengine can be installed via pip or easy_install
 
 ::
 
-   $ pip install -e git@github.com:twillis/pyramid_appengine.git#egg=pyramid_appengine
+   $ pip install -e git+git@github.com:twillis/pyramid_appengine.git#egg=pyramid_appengine
 
 
 
@@ -84,7 +84,7 @@ Then your application will be running at...
 
 ::
 
-   http://mynewproject.appspot.com
+   http://dev.mynewproject.appspot.com
 
 
 What It Does And Why
