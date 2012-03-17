@@ -2,6 +2,7 @@
 find-links=http://dist.plone.org/thirdparty/
 develop=src/{{project}}
 parts={{project}}
+	tests
 ae-sdk-version=1.6.3
 ae-runtime=2.7
 
@@ -55,3 +56,23 @@ appengine-lib=${gae-sdk-27:sdk-root}
 [bootstrap]
 recipe=zc.recipe.egg
 eggs=pastescript
+
+[tests]
+recipe = zc.recipe.egg
+eggs =
+    NoseGAE
+    gaetestbed
+    WebTest
+    WebOb<=1.1.1
+    nose
+    coverage
+interpreter = python
+
+extra-paths =
+    	    ${buildout:bin-directory}
+	    ${buildout:directory}/parts/{{project}}
+	    ${gae-sdk-27:sdk-root}
+    	    ${gae-sdk-27:sdk-root}/lib/antlr3
+    	    ${gae-sdk-27:sdk-root}/lib/django
+    	    ${gae-sdk-27:sdk-root}/lib/fancy_urllib
+    	    ${gae-sdk-27:sdk-root}/lib/yaml/lib

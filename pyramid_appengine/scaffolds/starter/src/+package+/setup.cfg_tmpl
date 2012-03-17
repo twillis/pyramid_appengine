@@ -4,6 +4,9 @@ nocapture = 1
 cover-package = {{package}}
 with-coverage = 1
 cover-erase = 1
+with-gae = 1
+gae-application = ../../parts/{{package}}
+gae-lib-root = ../../parts/google_appengine
 
 [compile_catalog]
 directory = {{package}}/locale
