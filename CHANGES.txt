@@ -1,1 +1,2 @@
+0.5.1, 03-21-2012 -- minor changes to readme.rst 
 0.5, 03-21-2012 -- initial release
