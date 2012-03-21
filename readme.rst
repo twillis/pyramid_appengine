@@ -12,7 +12,7 @@ pyramid_appengine can be installed via pip or easy_install
 
 ::
 
-   $ pip install -e git+git@github.com:twillis/pyramid_appengine.git#egg=pyramid_appengine
+   $ pip install pyramid_appengine
 
 
 
