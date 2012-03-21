@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = "0.0"
+version = "0.5"
 requires = ["pyramid<=1.2", "webob==1.1.1"]
 setup(name='pyramid_appengine',
       version=version,

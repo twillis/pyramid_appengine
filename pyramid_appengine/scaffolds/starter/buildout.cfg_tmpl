@@ -60,12 +60,10 @@ eggs=pastescript
 [tests]
 recipe = zc.recipe.egg
 eggs =
-    NoseGAE
-    gaetestbed
     WebTest
     WebOb<=1.1.1
-    nose
     coverage
+    pytest
 interpreter = python
 
 extra-paths =
