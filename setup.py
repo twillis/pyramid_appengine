@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.rst')).read()
+README = open(os.path.join(here, 'readme.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 version = "0.5"
