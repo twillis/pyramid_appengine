@@ -1,2 +1,21 @@
-0.5.1, 03-21-2012 -- minor changes to readme.rst 
-0.5, 03-21-2012 -- initial release
+0.5.2: 03-23-2012
+-----------------
+
+fixes to address github issue #6
+
+usage of project vs package used incorrectly.
+
+https://github.com/twillis/pyramid_appengine/issues/6
+
+
+
+0.5.1: 03-21-2012
+-----------------
+
+minor changes to readme.rst 
+
+
+0.5: 03-21-2012 
+---------------
+
+initial release
