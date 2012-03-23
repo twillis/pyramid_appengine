@@ -1,7 +1,7 @@
 [buildout]
 find-links=http://dist.plone.org/thirdparty/
-develop=src/{{project}}
-parts={{project}}
+develop=src/{{package}}
+parts={{package}}
 	tests
 ae-sdk-version=1.6.3
 ae-runtime=2.7
@@ -31,7 +31,7 @@ sdk-root=${gae-sdk:destination}
 destination=${rm-old-webob:location}
 strip-top-level-dir=true
 
-[{{project}}]
+[{{package}}]
 recipe=rod.recipe.appengine
 packages=
 	pyramid
@@ -47,7 +47,7 @@ packages=
 	translationstring
 	jinja2
 	
-src=src/{{project}}
+src=src/{{package}}
 server-script=devappserver
 zip-packages=False
 use_setuptools_pkg_resources=True
@@ -68,7 +68,7 @@ interpreter = python
 
 extra-paths =
     	    ${buildout:bin-directory}
-	    ${buildout:directory}/parts/{{project}}
+	    ${buildout:directory}/parts/{{package}}
 	    ${gae-sdk-27:sdk-root}
     	    ${gae-sdk-27:sdk-root}/lib/antlr3
     	    ${gae-sdk-27:sdk-root}/lib/django
