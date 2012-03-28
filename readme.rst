@@ -142,11 +142,7 @@ When buildout is run ...
    - all the dependencies for your project are downloaded and setup in
      the buildout environment
    - the appengine sdk is downloaded and installed in the buildout
-     environment under ./parts/google_appengine . Due to python2.7
-     recently being announced for general availability, and the SDK
-     not able to support 2.7 development yet, the sdk is patched by
-     replacing webob 0.9 with webob 1.1.1. This is done so that you
-     can develop using pyramid version <=1.2.
+     environment under ./parts/google_appengine .
    - tools such as devappserver, appcfg which are tools distributed
      with the app engine sdk are put in the buildouts bin directory
    
