@@ -3,33 +3,12 @@ find-links=http://dist.plone.org/thirdparty/
 develop=src/{{package}}
 parts={{package}}
 	tests
-ae-sdk-version=1.6.3
+ae-sdk-version=1.6.4
 ae-runtime=2.7
 
 [versions]
 webob=1.1.1
 pyramid=1.1
-
-[gae-sdk]
-recipe=hexagonit.recipe.download
-url=http://googleappengine.googlecode.com/files/google_appengine_${buildout:ae-sdk-version}.zip
-destination=${buildout:parts-directory}/google_appengine
-strip-top-level-dir=true
-
-[rm-old-webob]
-recipe=collective.recipe.cmd:py
-on_install=true
-location=${gae-sdk:destination}/lib/webob
-cmds=
-    >>> import shutil
-    >>> shutil.rmtree('${rm-old-webob:location}')
-
-[gae-sdk-27]
-recipe=hexagonit.recipe.download
-url=http://pypi.python.org/packages/source/W/WebOb/WebOb-1.1.1.zip
-sdk-root=${gae-sdk:destination}
-destination=${rm-old-webob:location}
-strip-top-level-dir=true
 
 [{{package}}]
 recipe=rod.recipe.appengine
@@ -51,7 +30,7 @@ src=src/{{package}}
 server-script=devappserver
 zip-packages=False
 use_setuptools_pkg_resources=True
-appengine-lib=${gae-sdk-27:sdk-root}
+url=http://googleappengine.googlecode.com/files/google_appengine_${buildout:ae-sdk-version}.zip
 
 [bootstrap]
 recipe=zc.recipe.egg
@@ -69,8 +48,8 @@ interpreter = python
 extra-paths =
     	    ${buildout:bin-directory}
 	    ${buildout:directory}/parts/{{package}}
-	    ${gae-sdk-27:sdk-root}
-    	    ${gae-sdk-27:sdk-root}/lib/antlr3
-    	    ${gae-sdk-27:sdk-root}/lib/django
-    	    ${gae-sdk-27:sdk-root}/lib/fancy_urllib
-    	    ${gae-sdk-27:sdk-root}/lib/yaml/lib
+	    ${buildout:directory}/parts/google_appengine
+    	    ${buildout:directory}/parts/google_appengine/lib/antlr3
+    	    ${buildout:directory}/parts/google_appengine/lib/django
+    	    ${buildout:directory}/parts/google_appengine/lib/fancy_urllib
+    	    ${buildout:directory}/parts/google_appengine/lib/yaml/lib
