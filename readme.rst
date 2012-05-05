@@ -21,7 +21,7 @@ made avaialable to use to create projects.
 
 ::
 
-   $ paster create --list-templates
+   $ pcreate --l
    Available templates:
      appengine_starter:      Pyramid scaffold for appengine
      ...
@@ -103,7 +103,6 @@ looks like this...
 
    /myproject/
    /myproject/app.yaml
-   /myproject/app.py # some script referenced in app.yaml
    /myproject/index.yaml
    /myproject/queue.yaml
    /myproject/pyramid
