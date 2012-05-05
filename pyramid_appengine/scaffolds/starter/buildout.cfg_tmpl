@@ -3,12 +3,8 @@ find-links=http://dist.plone.org/thirdparty/
 develop=src/{{package}}
 parts={{package}}
 	tests
-ae-sdk-version=1.6.4
+ae-sdk-version=1.6.5
 ae-runtime=2.7
-
-[versions]
-webob=1.1.1
-pyramid=1.1
 
 [{{package}}]
 recipe=rod.recipe.appengine
@@ -18,13 +14,10 @@ packages=
 	repoze.lru
 	zope.interface
 	zope.deprecation
-	zope.component
-	zope.event
-	paste
-	pastedeploy
 	venusian
 	translationstring
 	jinja2
+	webob
 	
 src=src/{{package}}
 server-script=devappserver
@@ -40,9 +33,9 @@ eggs=pastescript
 recipe = zc.recipe.egg
 eggs =
     WebTest
-    WebOb<=1.1.1
-    coverage
+    WebOb
     pytest
+    pytest-cov
 interpreter = python
 
 extra-paths =

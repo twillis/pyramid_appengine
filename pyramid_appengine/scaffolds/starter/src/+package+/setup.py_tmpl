@@ -20,7 +20,7 @@ class PyTest(Command):
         errno = pytest.main("")
         raise SystemExit(errno)
 
-requires = ['pyramid<=1.2', 'webob<=1.1.1', 'jinja2']
+requires = ['pyramid>=1.3', 'jinja2']
 test_requires = requires + ["pytest"]
 setup(name='{{project}}',
       version='0.0',

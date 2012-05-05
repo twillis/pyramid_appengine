@@ -13,7 +13,7 @@ handlers:
   login: admin
 
 - url: /.*
-  script: application.application
+  script: {{package}}.application
 
 builtins:
 - appstats: off

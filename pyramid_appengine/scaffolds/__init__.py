@@ -1,15 +1,13 @@
 """
 scaffold
 """
-from paste.script.templates import Template
-from paste.util.template import paste_script_template_renderer
+from pyramid.scaffolds.template import Template
 import os
 
 
 class PyramidAppEngineStarterTemplate(Template):
     _template_dir = "starter"
     summary = "Pyramid scaffold for appengine"
-    template_renderer = staticmethod(paste_script_template_renderer)
 
     # taken from pyramid/scaffolds.PyramidTemplate
     def pre(self, command, output_dir, vars):

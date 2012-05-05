@@ -1,3 +1,17 @@
+0.5.4
+-----------------
+
+upgrading buildout to appengine sdk 1.6.5 and pyramid 1.3
+
+changed application template to not use an ini file because it doesn't
+really add any value on appengine, but handling the paste*
+dependencies is troublesome for the recipe rod.recipe.appengine under
+some circumstances.
+
+This is just the default behavior of course, there's nothing stopping
+you from deploying with an ini file if you wish.
+
+
 0.5.3: 03-27-2012
 -----------------
 

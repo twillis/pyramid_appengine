@@ -35,7 +35,7 @@ To get started, first create your project skeleton.
 
 ::
 
-   $ paster create -t appengine_starter mynewproject
+   $ pcreate -t appengine_starter mynewproject
 
 A buildout environment for your project will be created. once
 complete, run the buildout as usual
