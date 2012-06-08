@@ -1,4 +1,5 @@
 [buildout]
+include-site-packages=false
 find-links=http://dist.plone.org/thirdparty/
 develop=src/{{package}}
 parts={{package}}
