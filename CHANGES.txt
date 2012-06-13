@@ -1,3 +1,12 @@
+0.6: 06-13-2012
+------------------
+
+changed buildout.cfg to ignore site-packages which should fix a lot of
+issues with various namespaces packages that pyramid potentially
+depends on.
+
+
+
 0.5.4.1: 05-05-2012
 -------------------
 
