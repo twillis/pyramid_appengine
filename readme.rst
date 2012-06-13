@@ -144,7 +144,34 @@ When buildout is run ...
      environment under ./parts/google_appengine .
    - tools such as devappserver, appcfg which are tools distributed
      with the app engine sdk are put in the buildouts bin directory
-   
+
+ 
+Buildout and Virtualenv
+-----------------------
+
+In order for Google App Engine's Dev Server and upload script to
+function correctly all files which are being used by the project must
+be collected together into a flat hierarchy, as described above.
+
+By default, however, buildout will not create directories for any
+packages already present in the system's site-packages directory.  An
+option in buildout.cfg overrides this behaviour and instructs buildout
+to ignore all site-packages; this is analogous to virtualenv's '--no-
+site-packages' switch which is, in any case, the default.
+
+Unfortunately buildout's mechanism for isolating itself from the
+system python interpreter's site-packages conflicts with virtualenv.
+Specifically, the interpreter copied by virtualenv does not honour the
+'python -S' command which asks python to not automatically import
+site.py.  Buildout makes use of that command in order to avoid
+importing site-packages.
+
+Since buildout is capable of creating a reproducible environment free
+from any system-wide site-packages, there is no particular need to use
+virtualenv.  If however it is used then the full path to a python
+interpreter which does honour 'python -S' must be used in order to
+ensure that all dependencies are made available to GAE.
+
 
 Managing dependencies for deployment
 ====================================
