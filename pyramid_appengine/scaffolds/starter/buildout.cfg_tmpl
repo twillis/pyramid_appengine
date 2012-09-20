@@ -4,7 +4,7 @@ find-links=http://dist.plone.org/thirdparty/
 develop=src/{{package}}
 parts={{package}}
 	tests
-ae-sdk-version=1.7.1
+ae-sdk-version=1.7.2
 ae-runtime=2.7
 unzip=true
 
