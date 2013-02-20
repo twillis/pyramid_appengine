@@ -30,6 +30,15 @@ made avaialable to use to create projects.
 
 Getting Started
 ===============
+The project generated from the scaffold utilizes buildout 2 which no
+longer attempts to provide full or partial isolation from system
+python installations. As a result it is a good idea to use a
+virtualenv to provide that isolation.
+
+This can be accomplished by simply creating a new virtualenv and using
+it's interpreter to run bootstrap.py. Using virtualenv is out of scope
+but there is plenty of information on the internet on how to do it.
+
 
 To get started, first create your project skeleton.
 
@@ -44,8 +53,18 @@ complete, run the buildout as usual
 ::
 
    $ cd meynewproject
-   $ /usr/bin/python2.7 bootstrap.py --distribute
+   $ /usr/bin/python2.7 bootstrap.py
    $ ./bin/buildout
+
+OR with a virtualenv
+
+::
+
+   $ cd meynewproject
+   $ /path/to/virtualenv/bin/python2.7 bootstrap.py
+   $ ./bin/buildout
+
+
 
 The buildout will take care of downloading and installing the App
 Engine SDK (currently 1.6.3). it will be located in
@@ -127,7 +146,7 @@ For running the buildout you typically do ...
 
 ::
 
-   $ /path/to/python bootstrap.py --distribute
+   $ /path/to/python bootstrap.py
    $ ./bin/buildout
 
 The buildout.cfg file distributed with python_appengine does the

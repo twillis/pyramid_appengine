@@ -1,6 +1,10 @@
 [buildout]
 include-site-packages=false
 find-links=http://dist.plone.org/thirdparty/
+extends = versions.cfg
+versions = versions
+update-versions-file = versions.cfg
+show-picked-versions = true
 develop=src/{{package}}
 parts={{package}}
 	tests
@@ -20,7 +24,7 @@ packages=
 	translationstring
 	jinja2
 	webob
-	
+	chameleon
 src=src/{{package}}
 server-script=devappserver
 zip-packages=False
