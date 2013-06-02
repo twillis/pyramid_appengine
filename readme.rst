@@ -80,14 +80,28 @@ Running your project for development
 
 ::
 
-   $ ./bin/devappserver parts/mynewproject
+   $ ./bin/supervisord
 
-your pyramid site will be running on port 8080 so point your browser
+your pyramid site will be running on port 8000 so point your browser
 at
 
 ::
 
-   http://localhost:8080
+   http://localhost:8000
+
+The app engine admin console for your app is on port 8010
+
+
+You will find the supervisor service on port 9999 at
+
+:: 
+
+   http://localhost:9999
+
+From there you can check to see if the service is running, and you can
+start/stop/restart and tail the log.
+
+
 
 Deploying your application to App Engine
 ========================================
@@ -163,6 +177,7 @@ When buildout is run ...
      environment under ./parts/google_appengine .
    - tools such as devappserver, appcfg which are tools distributed
      with the app engine sdk are put in the buildouts bin directory
+   - a supervisor script to run the dev_appserver.py is generated
 
  
 Buildout and Virtualenv
@@ -173,23 +188,11 @@ function correctly all files which are being used by the project must
 be collected together into a flat hierarchy, as described above.
 
 By default, however, buildout will not create directories for any
-packages already present in the system's site-packages directory.  An
-option in buildout.cfg overrides this behaviour and instructs buildout
-to ignore all site-packages; this is analogous to virtualenv's '--no-
-site-packages' switch which is, in any case, the default.
+packages already present in the system's site-packages directory.
 
-Unfortunately buildout's mechanism for isolating itself from the
-system python interpreter's site-packages conflicts with virtualenv.
-Specifically, the interpreter copied by virtualenv does not honour the
-'python -S' command which asks python to not automatically import
-site.py.  Buildout makes use of that command in order to avoid
-importing site-packages.
-
-Since buildout is capable of creating a reproducible environment free
-from any system-wide site-packages, there is no particular need to use
-virtualenv.  If however it is used then the full path to a python
-interpreter which does honour 'python -S' must be used in order to
-ensure that all dependencies are made available to GAE.
+Since buildout 2.0 has been released, the suggested way to provide
+package isolation is to create a virtualenv and then use that
+interpreter to bootstrap your buildout.
 
 
 Managing dependencies for deployment

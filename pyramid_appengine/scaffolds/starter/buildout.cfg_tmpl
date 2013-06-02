@@ -8,9 +8,16 @@ show-picked-versions = true
 develop=src/{{package}}
 parts={{package}}
 	tests
-ae-sdk-version=1.7.5
+	service-{{package}}
+ae-sdk-version=1.8.0
 ae-runtime=2.7
+ae-sdk-location = ${buildout:parts-directory}/google_appengine
 unzip=true
+supervisor-port = 9999
+supervisor-conf-dir = ${buildout:directory}/conf
+supervisor-log-dir = ${buildout:directory}/var/log
+service-conf-templates = ${buildout:directory}/conf.tmpl
+project-name={{package}}
 
 [{{package}}]
 recipe=rod.recipe.appengine
@@ -52,3 +59,28 @@ extra-paths =
     	    ${buildout:directory}/parts/google_appengine/lib/django
     	    ${buildout:directory}/parts/google_appengine/lib/fancy_urllib
     	    ${buildout:directory}/parts/google_appengine/lib/yaml/lib
+
+
+[supervisor]
+recipe = zc.recipe.egg
+
+[mk-supervisor-log-dir]
+recipe = collective.recipe.cmd:py
+on_install = true
+cmds =
+    >>> if not os.path.isdir('${buildout:supervisor-log-dir}'):os.makedirs('${buildout:supervisor-log-dir}')
+
+[service-supervisor]
+recipe = collective.recipe.template
+input = ${buildout:service-conf-templates}/supervisord.conf_tmpl
+output = ${buildout:directory}/etc/supervisord.conf
+depends = ${mk-supervisor-log-dir:recipe} ${supervisor:recipe}
+
+[service-{{package}}]
+recipe = collective.recipe.template
+input = ${buildout:service-conf-templates}/service-${buildout:project-name}.conf_tmpl
+output = ${buildout:supervisor-conf-dir}/service-${buildout:project-name}.conf
+port=8000
+admin_port=8010
+api_port=8020
+depends = ${service-supervisor:recipe}
