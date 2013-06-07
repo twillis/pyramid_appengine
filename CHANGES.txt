@@ -1,5 +1,10 @@
-0.8.2
------
+0.8.2-a2
+---------
+
+rebuild with all the artifacts (reademe.rst, CHANGES.txt etc.....)
+
+0.8.2-a1
+---------
 
 added supervisord scripts to run dev_appserver
 
