@@ -23,3 +23,5 @@ libraries:
   version: latest
 - name: webob
   version: latest
+- name: setuptools
+  version: latest

@@ -9,9 +9,17 @@ develop=src/{{package}}
 parts={{package}}
 	tests
 	service-{{package}}
-ae-sdk-version=1.8.0
+ae-sdk-version=1.8.3
 ae-runtime=2.7
 ae-sdk-location = ${buildout:parts-directory}/google_appengine
+ae-extra-paths =
+    	    ${buildout:bin-directory}
+	    ${buildout:directory}/parts/{{package}}
+	    ${buildout:directory}/parts/google_appengine
+    	    ${buildout:directory}/parts/google_appengine/lib/antlr3
+    	    ${buildout:directory}/parts/google_appengine/lib/django
+    	    ${buildout:directory}/parts/google_appengine/lib/fancy_urllib
+    	    ${buildout:directory}/parts/google_appengine/lib/yaml/lib
 unzip=true
 supervisor-port = 9999
 supervisor-conf-dir = ${buildout:directory}/conf
@@ -34,13 +42,14 @@ packages=
 	chameleon
 src=src/{{package}}
 server-script=devappserver
-zip-packages=False
-use_setuptools_pkg_resources=True
+zip-packages=false
+use_setuptools_pkg_resources=true
 url=http://googleappengine.googlecode.com/files/google_appengine_${buildout:ae-sdk-version}.zip
 
 [bootstrap]
 recipe=zc.recipe.egg
 eggs=pastescript
+extra-paths=${buildout:ae-extra-paths}
 
 [tests]
 recipe = zc.recipe.egg
@@ -50,15 +59,7 @@ eggs =
     pytest
     pytest-cov
 interpreter = python
-
-extra-paths =
-    	    ${buildout:bin-directory}
-	    ${buildout:directory}/parts/{{package}}
-	    ${buildout:directory}/parts/google_appengine
-    	    ${buildout:directory}/parts/google_appengine/lib/antlr3
-    	    ${buildout:directory}/parts/google_appengine/lib/django
-    	    ${buildout:directory}/parts/google_appengine/lib/fancy_urllib
-    	    ${buildout:directory}/parts/google_appengine/lib/yaml/lib
+extra-paths=${buildout:ae-extra-paths}
 
 
 [supervisor]

@@ -20,7 +20,7 @@ class PyTest(Command):
         errno = pytest.main("")
         raise SystemExit(errno)
 
-requires = ['pyramid==1.4', 'jinja2']
+requires = ['pyramid', 'jinja2']
 test_requires = requires + ["pytest"]
 setup(name='{{project}}',
       version='0.0',
