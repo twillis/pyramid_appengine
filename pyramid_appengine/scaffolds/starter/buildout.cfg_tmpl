@@ -9,7 +9,7 @@ develop=src/{{package}}
 parts={{package}}
 	tests
 	service-{{package}}
-ae-sdk-version=1.8.3
+ae-sdk-version=1.8.7
 ae-runtime=2.7
 ae-sdk-location = ${buildout:parts-directory}/google_appengine
 ae-extra-paths =

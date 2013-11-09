@@ -1,5 +1,5 @@
 [program:service-{{package}}]
-command= ${buildout:directory}/bin/python ${buildout:ae-sdk-location}/dev_appserver.py ${buildout:directory}/parts/{{package}}/ --port ${service-{{package}}:port} --admin_port ${service-{{package}}:admin_port} --api_port ${service-{{package}}:api_port}
+command= ${buildout:directory}/bin/python ${buildout:ae-sdk-location}/dev_appserver.py ${buildout:directory}/parts/{{package}}/ --port ${service-{{package}}:port} --admin_port ${service-{{package}}:admin_port} --api_port ${service-{{package}}:api_port} --skip_sdk_update_check
 process_name = service-{{package}}
 directory = ${buildout:directory}/parts/{{package}}
 priority = 10

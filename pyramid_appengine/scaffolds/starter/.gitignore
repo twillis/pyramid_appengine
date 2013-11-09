@@ -1,0 +1,12 @@
+/.env
+/bin
+/develop-eggs
+/eggs
+/downloads
+/parts
+*.egg-info
+/.installed.cfg
+/conf/
+/etc/
+*~
+*.pyc

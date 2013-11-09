@@ -1,3 +1,23 @@
+0.8.3
+--------
+
+upgrade sdk to 1.8.7
+
+fix setuptools craziness with rod.recipe.appengine by pinning
+setuptools in versions.cfg
+
+add flag in supervisor config for devappserver to avoid checking for
+sdk updates when it starts up so that the app either comes up or
+errors out, not just hangs there waiting for user input that it will
+never get.
+
+
+Slight modification to docs to give an actual opinion on whether to
+use virtualenv or not. As in yes, use a virtualenv for less python
+packaging pain. 
+
+
+
 0.8.2-a2
 ---------
 

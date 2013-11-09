@@ -53,17 +53,9 @@ complete, run the buildout as usual
 ::
 
    $ cd meynewproject
-   $ /usr/bin/python2.7 bootstrap.py
+   $ virtualenv -p /usr/bin/python2.7 .env
+   $ .env/bin/python2.7 bootstrap.py
    $ ./bin/buildout
-
-OR with a virtualenv
-
-::
-
-   $ cd meynewproject
-   $ /path/to/virtualenv/bin/python2.7 bootstrap.py
-   $ ./bin/buildout
-
 
 
 The buildout will take care of downloading and installing the App
@@ -74,6 +66,7 @@ development server will be located in "./bin"
 Your source code for your project will be located at
 "./src/mynewproject", a bundle of your source and it's dependencies
 will be located at "./parts/mynewproject"
+
 
 Running your project for development
 ====================================
