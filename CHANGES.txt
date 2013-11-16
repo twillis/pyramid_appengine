@@ -1,3 +1,9 @@
+0.8.3.1
+---------
+
+somehow 0.8.3 got zipped with a README.rst instead of a readme.rst
+
+
 0.8.3
 --------
 

@@ -4,7 +4,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'readme.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-version = "0.8.3"
+version = "0.8.3.1"
 requires = ["pyramid"]
 setup(name='pyramid_appengine',
       version=version,
