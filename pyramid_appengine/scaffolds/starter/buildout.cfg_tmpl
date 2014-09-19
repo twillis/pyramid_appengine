@@ -31,7 +31,6 @@ project-name={{package}}
 recipe=rod.recipe.appengine
 packages=
 	pyramid
-	mako
 	repoze.lru
 	zope.interface
 	zope.deprecation
@@ -39,7 +38,7 @@ packages=
 	translationstring
 	jinja2
 	webob
-	chameleon
+	
 src=src/{{package}}
 server-script=devappserver
 zip-packages=false
