@@ -1,10 +1,19 @@
 from setuptools import setup, find_packages
 import os
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'readme.rst')).read()
-CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-version = "0.8.4.1"
+try:
+    README = open(os.path.join(here, 'README.rst')).read()
+except IOError:
+    README = ""
+
+try:
+    CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
+except IOError:
+    CHANGES = ""
+
+
+version = "0.8.4.2"
 requires = ["pyramid"]
 setup(name='pyramid_appengine',
       version=version,
