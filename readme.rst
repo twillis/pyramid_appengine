@@ -5,6 +5,11 @@
 A scaffold to help you get started writing a pyramid aplication that
 will run on Google App Engine.
 
+Looking for a new maintainer
+============================
+
+I don't do python anymore, or appengine for that matter. If anyone is interested in taking this scaffold over I will be happy to transfer it. 
+
 Installation
 ============
 
