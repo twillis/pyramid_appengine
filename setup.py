@@ -13,7 +13,7 @@ except IOError:
     CHANGES = ""
 
 
-version = "0.8.4.2"
+version = "0.8.5"
 requires = ["pyramid"]
 setup(name='pyramid_appengine',
       version=version,
