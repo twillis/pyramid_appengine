@@ -2,7 +2,7 @@
  pyramid_appengine
 ===================
 
-A scaffold to help you get started writing a pyramid aplication that
+A scaffold to help you get started writing a pyramid application that
 will run on Google App Engine.
 
 Looking for a new maintainer
